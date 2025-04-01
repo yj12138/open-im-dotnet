@@ -1,0 +1,15 @@
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+**/bin/
+**/obj/
+
+.vs/
+
+*.nupkg
+packages/
+project.lock.json
+project.assets.json
