@@ -1,10 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>open_im_sdk</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
+    <PropertyGroup>
+        <Version>3.8.2</Version>
+        <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace>open_im_sdk</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <PackageId>open-im-sdk</PackageId>
+        <Authors>Yejian</Authors>
+        <Description>a dotnet sdk for open im</Description>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DefineConstants>DEBUG;WINDOWS;IMSDK_LOG_ENABLE</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DefineConstants>RELEASE;WINDOWS;IMSDK_LOG_ENABLE</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="runtimes/win-x64/native/openimsdk.dll">
+            <Pack>true</Pack>
+            <PackagePath>./</PackagePath>
+        </None>
+        <None Update="runtimes/osx-arm64/native/libopenimsdk.dylib">
+            <Pack>true</Pack>
+            <PackagePath>./</PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="runtimes/win-x64/native/openimsdk.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 </Project>

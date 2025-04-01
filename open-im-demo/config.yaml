@@ -1,0 +1,15 @@
+OfficialWebSite: "https://www.openim.io/zh"
+DocWebSite: "https://docs.openim.io/zh-Hans/sdks/introduction"
+APIAddr: "http://web.openim.io:10002"
+WsAddr: "ws://web.openim.io:10001"
+DataDir: "./cache/"
+DBPath: "./cache/"
+IsLogStandardOutput: true
+LogFilePath: "./cache/log/"
+AdminToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJpbUFkbWluIiwiUGxhdGZvcm1JRCI6MTAsImV4cCI6MTc0MTAxMzA2MCwibmJmIjoxNzMzMjM2NzYwLCJpYXQiOjE3MzMyMzcwNjB9.eLKMgTToe9OA1PoarjHUpwDcmoLK4HLTtEgqQwr8kWU
+# 测试帐户
+TestAccounts:
+  - UserId: test1
+    Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJ0ZXN0MSIsIlBsYXRmb3JtSUQiOjMsImV4cCI6MTc0MjIyMjQ5NywibmJmIjoxNzM0NDQ2MTk3LCJpYXQiOjE3MzQ0NDY0OTd9.Rs5hEzaZ-Fe1DQFI2Ptph7-8VA0SxszK7WrkaBHPWTA"
+  - UserId: test2
+    Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJ0ZXN0MSIsIlBsYXRmb3JtSUQiOjMsImV4cCI6MTc0MjIyMjQ5NywibmJmIjoxNzM0NDQ2MTk3LCJpYXQiOjE3MzQ0NDY0OTd9.Rs5hEzaZ-Fe1DQFI2Ptph7-8VA0SxszK7WrkaBHPWTA"
