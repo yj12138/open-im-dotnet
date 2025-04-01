@@ -7,11 +7,19 @@ namespace IMDemo
 {
     public class DemoApplication : Application
     {
-        public Config Config;
+        public static Config Config;
         public Action OnLoadCallBack;
-        public DemoApplication(string title, int width, int height) : base(title, width, height)
+        public DemoApplication(string title, int width, int height, Config config) : base(title, width, height)
         {
-
+            Config = config;
+            Debug.Log(Config.TestAccounts.Length);
+            foreach (var info in config.TestAccounts)
+            {
+                AddMenuItem("Start/Login/" + info.UserId, () =>
+                {
+                    User.TryLogin(info.UserId, info.Token);
+                });
+            }
         }
 
         protected override void OnLoad()
@@ -40,7 +48,6 @@ namespace IMDemo
         }
         protected override void OnGUI()
         {
-            // draw
             StatusBar.Draw();
         }
     }

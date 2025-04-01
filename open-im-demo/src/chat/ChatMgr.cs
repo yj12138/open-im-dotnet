@@ -8,7 +8,6 @@ namespace IMDemo.Chat
 {
     public class ChatMgr
     {
-        public static DemoApplication Application;
         private static ChatMgr _instance;
         public static ChatMgr Instance
         {
@@ -21,7 +20,9 @@ namespace IMDemo.Chat
                 return _instance;
             }
         }
+        public Config config;
         public User currentUser;
+        public Action<string> SetWinTitle;
         ConnListener connListener;
         private ChatMgr()
         {
@@ -42,19 +43,27 @@ namespace IMDemo.Chat
         }
         public bool InitSDK()
         {
-            var config = new IMConfig()
+            var _config = new IMConfig()
             {
                 PlatformID = (int)PlatformID,
-                ApiAddr = Application.Config.APIAddr,
-                WsAddr = Application.Config.WsAddr,
-                DataDir = Path.Combine(AppContext.BaseDirectory, Application.Config.DataDir),
-                LogLevel = Application.Config.LogLevel,
-                IsLogStandardOutput = Application.Config.IsLogStandardOutput,
-                LogFilePath = Path.Combine(AppContext.BaseDirectory, Application.Config.LogFilePath),
-                IsExternalExtensions = Application.Config.IsExternalExtensions,
+                ApiAddr = config.APIAddr,
+                WsAddr = config.WsAddr,
+                DataDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, config.DataDir),
+                LogLevel = config.LogLevel,
+                IsLogStandardOutput = config.IsLogStandardOutput,
+                LogFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, config.LogFilePath),
+                IsExternalExtensions = config.IsExternalExtensions,
             };
+            if (!Directory.Exists(_config.DataDir))
+            {
+                Directory.CreateDirectory(_config.DataDir);
+            }
+            if (!Directory.Exists(_config.LogFilePath))
+            {
+                Directory.CreateDirectory(_config.LogFilePath);
+            }
 
-            return IMSDK.GetInstance().InitSDK(config, connListener);
+            return IMSDK.GetInstance().InitSDK(_config, connListener);
         }
         public void UnInitSDK()
         {
@@ -72,16 +81,16 @@ namespace IMDemo.Chat
             {
                 try
                 {
-                    var url = string.Format("{0}{1}", Application.Config.APIAddr, "/auth/get_user_token");
+                    var url = string.Format("{0}{1}", config.APIAddr, "/auth/get_user_token");
                     var userTokenReq = new UserTokenReq()
                     {
                         secret = "openIM123",
-                        platformID = (int)ChatMgr.PlatformID,
+                        platformID = (int)PlatformID,
                         userID = userId,
                     };
                     var postData = JsonConvert.SerializeObject(userTokenReq);
                     httpClient.DefaultRequestHeaders.Add("operationID", "111111");
-                    httpClient.DefaultRequestHeaders.Add("token", Application.Config.AdminToken);
+                    httpClient.DefaultRequestHeaders.Add("token", config.AdminToken);
                     HttpResponseMessage response = await httpClient.PostAsync(url, new StringContent(postData, Encoding.UTF8, "application/json"));
                     response.EnsureSuccessStatusCode();
                     string jsonResponse = await response.Content.ReadAsStringAsync();

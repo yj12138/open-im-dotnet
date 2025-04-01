@@ -59,7 +59,7 @@ namespace OpenIM.IMSDK
         {
             try
             {
-                _syncContext.Post(state =>
+                _syncContext.Send(state =>
                 {
                     var msgId = (MessageDef)id;
                     var msgData = Marshal.PtrToStringUTF8(data);

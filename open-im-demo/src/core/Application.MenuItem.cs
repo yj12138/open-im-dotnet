@@ -6,7 +6,7 @@ namespace IMDemo.Core
 {
     public partial class Application
     {
-        static MenuItem rootMenuItem = new MenuItem
+        protected static MenuItem rootMenuItem = new MenuItem
         {
             Name = "Root"
         };
@@ -35,7 +35,7 @@ namespace IMDemo.Core
             }
             return menuItem;
         }
-        static void AddMenuItem(string name, Action callBack)
+        protected static void AddMenuItem(string name, Action callBack)
         {
             string[] parts = name.Split('/');
             var menuItem = rootMenuItem;

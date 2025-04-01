@@ -1,15 +1,15 @@
 OfficialWebSite: "https://www.openim.io/zh"
 DocWebSite: "https://docs.openim.io/zh-Hans/sdks/introduction"
-APIAddr: "http://web.openim.io:10002"
-WsAddr: "ws://web.openim.io:10001"
-DataDir: "./cache/"
-DBPath: "./cache/"
-IsLogStandardOutput: true
-LogFilePath: "./cache/log/"
-AdminToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJpbUFkbWluIiwiUGxhdGZvcm1JRCI6MTAsImV4cCI6MTc0MTAxMzA2MCwibmJmIjoxNzMzMjM2NzYwLCJpYXQiOjE3MzMyMzcwNjB9.eLKMgTToe9OA1PoarjHUpwDcmoLK4HLTtEgqQwr8kWU
+APIAddr: "https://web.openim.io/api"
+WsAddr: "wss://web.openim.io/msg_gateway"
+DataDir: "cache"
+LogFilePath: "cache"
+IsLogStandardOutput: false
+LogLevel: 5
+AdminToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJpbUFkbWluIiwiUGxhdGZvcm1JRCI6MTAsImV4cCI6MTc1MTI2OTEzNCwiaWF0IjoxNzQzNDkzMTI5fQ.UstdBxy3DXs4F0KZH6_l_Mfbc8rUs2TR_anDUkYJM6E"
 # 测试帐户
 TestAccounts:
-  - UserId: test1
-    Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJ0ZXN0MSIsIlBsYXRmb3JtSUQiOjMsImV4cCI6MTc0MjIyMjQ5NywibmJmIjoxNzM0NDQ2MTk3LCJpYXQiOjE3MzQ0NDY0OTd9.Rs5hEzaZ-Fe1DQFI2Ptph7-8VA0SxszK7WrkaBHPWTA"
-  - UserId: test2
-    Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJ0ZXN0MSIsIlBsYXRmb3JtSUQiOjMsImV4cCI6MTc0MjIyMjQ5NywibmJmIjoxNzM0NDQ2MTk3LCJpYXQiOjE3MzQ0NDY0OTd9.Rs5hEzaZ-Fe1DQFI2Ptph7-8VA0SxszK7WrkaBHPWTA"
+  - UserId: dotnet_test_1
+    Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkb3RuZXRfdGVzdF8xIiwiUGxhdGZvcm1JRCI6MywiZXhwIjoxNzUxMjY5MjAwLCJpYXQiOjE3NDM0OTMxOTV9.MUmtkOy8VIFuIcCwyCxpx72LJfUiQiB9ZdTtFla7fZ8"
+  - UserId: dotnet_test_2
+    Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkb3RuZXRfdGVzdF8yIiwiUGxhdGZvcm1JRCI6MywiZXhwIjoxNzUxMjY5MjE0LCJpYXQiOjE3NDM0OTMyMDl9.FlSdJmAw2upVT8YQeQ7DPMlsTvTeULlnCiZ8eAgPZng"

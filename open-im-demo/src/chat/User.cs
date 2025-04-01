@@ -51,7 +51,7 @@ namespace IMDemo.Chat
                 {
                     Debug.Log($"{uid} Logout suc");
                     ChatMgr.Instance.currentUser = null;
-                    ChatMgr.Application.Title = "IMDemo";
+                    ChatMgr.Instance.SetWinTitle?.DynamicInvoke("IMDemo");
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace IMDemo.Chat
         void OnLoginSuc()
         {
             uid = IMSDK.GetInstance().GetLoginUserId();
-            ChatMgr.Application.Title = "IMDemo-" + uid;
+            ChatMgr.Instance.SetWinTitle?.DynamicInvoke("IMDemo-" + uid);
             loginStatus = IMSDK.GetInstance().GetLoginStatus();
             IMSDK.GetInstance().GetTotalUnreadMsgCount((count, err, errMsg) =>
             {
