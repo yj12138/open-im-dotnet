@@ -18,6 +18,11 @@ var config = deserializer.Deserialize<Config>(configContent);
 ChatMgr.Instance.config = config;
 var app = new DemoApplication("IMDemo", 1000, 800, config);
 
+ChatMgr.Instance.SetWinTitle = (title) =>
+{
+    app.Title = title;
+};
+
 if (arguments.Count > 0)
 {
     app.OnLoadCallBack = () =>

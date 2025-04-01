@@ -16,7 +16,7 @@ namespace OpenIM.IMSDK
     {
         public delegate void OnBase<T>(T data, int errCode, string errMsg);
 
-        SynchronizationContext _syncContext;
+        static SynchronizationContext _syncContext;
         private Dictionary<string, Delegate> callBackDic = new Dictionary<string, Delegate>();
         private Dictionary<string, IMsgSendCallBack> msgSendCallBackDic = new Dictionary<string, IMsgSendCallBack>();
         private IConnListener connListener;

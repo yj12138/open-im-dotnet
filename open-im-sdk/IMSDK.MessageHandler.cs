@@ -55,7 +55,7 @@ namespace OpenIM.IMSDK
 
     public partial class IMSDK
     {
-        private void MessageHandler(int id, IntPtr data)
+        private static void MessageHandler(int id, IntPtr data)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace OpenIM.IMSDK
                     var msgId = (MessageDef)id;
                     var msgData = Marshal.PtrToStringUTF8(data);
                     Utils.Log(string.Format("[{0}]:{1}", msgId, msgData));
-                    DispatorMsg(msgId, msgData);
+                    GetInstance().DispatorMsg(msgId, msgData);
                 }, null);
             }
             catch (Exception e)
