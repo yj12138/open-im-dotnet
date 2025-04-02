@@ -120,15 +120,7 @@ namespace IMDemo.UI
                     }
                     if (message.FileElem != null)
                     {
-                        ImGui.Text("File -> " + message.FileElem.FileName + "=" + message.FileElem.SourceURL);
-                        if (message.SendID != ChatMgr.Instance.currentUser.uid)
-                        {
-                            ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 50);
-                            if (ImGui.Button("Receive"))
-                            {
-
-                            }
-                        }
+                        ImGui.Text("Recv File : URL=" + message.FileElem.SourceURL);
                     }
                     if (message.NotificationElem != null)
                     {
